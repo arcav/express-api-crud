@@ -2,23 +2,23 @@ import {connect} from '../dataBase'
 import { ObjectID } from 'mongodb'
 
 
-// GET ALL 
-export async function getAll(req, res ) {
+//GET ALL 
+exports.getAll = async (req, res ) => {
 	const db = await connect()
 	const result= await db.collection('users').find({}).toArray();
 	res.json(result);	
-};
+}; 
 
 //GET ONE
-export async function getOne(req, res){
-	const { id } = req.params;;
+exports.getOne = async (req, res) => {
+	const { id } = req.params;
 	const db = await connect()
 	const result= await db.collection('users').findOne({ _id: ObjectID(id) });
-	res.json(result);
+	res.json(result)
 };
 
 //CREATE ONE
-export async function createOne(req, res){
+exports.createOne = async (req, res) => {
 	const db = await connect()
 	const user =   {
 		firstName: req.body.firstName,
@@ -31,7 +31,7 @@ export async function createOne(req, res){
 
 
 //DELETE ONE
-export async function deleteOne (req, res){
+exports.deleteOne = async (req, res) => {
 	const { id } = req.params;
 	const db = await connect()
 	const result= await db.collection('users').deleteOne({ _id: ObjectID(id) });
@@ -42,7 +42,7 @@ export async function deleteOne (req, res){
 };
 
 //UPDATE ONE
-export async function updateOne(req, res){
+exports.updateOne = async (req, res) => {
 	const { id } = req.params;
 	const updateUser =  {
 		firstName: req.body.firstName,
@@ -56,4 +56,5 @@ export async function updateOne(req, res){
 		result
 	});
 };
+
 
