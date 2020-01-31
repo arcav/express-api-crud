@@ -3,23 +3,26 @@ import { Router } from 'express'
 //Instanciate Router
 const router = Router()
 
-import {getUsers,
-		getUser,
-		createUser,
-		deleteUser,
-		updateUser} from '../controllers/userController'
+//Import CRUD functions
+import {
+	getAll,
+	getOne,
+	createOne,
+	deleteOne,
+	updateOne
+} from '../controllers/crudController'
 
-//To List all Users
-
+//Static Routes
 router.route('/')
-	.get(getUsers)
-	.post(createUser)
+	.get(getAll)
+	.post(createOne)
 
-//To Insert a User
+
+//Dynamic Routes
 router.route('/:id')
-	.get(getUser)
-	.delete(deleteUser)
-	.put(updateUser)
-	
+	.get(getOne)
+	.delete(deleteOne)
+	.put(updateOne)
+
 
 export default router
