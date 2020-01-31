@@ -1,5 +1,5 @@
 # express-api-crud
-A basic REST-API with Express,MongoDB and Babel
+A basic  CRUD REST-API with Express,MongoDB and Babel
 <h2> npm run dev</h2> for development
 <h2> npm run build</h2> for transpilate in the dist folder
 <h2> npm start</h2> for start dist folder
